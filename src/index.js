@@ -12,20 +12,25 @@ exports.min = function min(array) {
 }
 
 exports.max = function max(array) {
-        let max = -Infinity
-        if (arguments.length === 0 || array[0] == undefined) {
-            return 0
+    let max = -Infinity
+    if (arguments.length === 0 || array[0] == undefined) {
+        return 0
+    }
+    array.forEach(element => {
+        if (element > max) {
+            max = element
         }
-        if (array.length === 0 || array == undefined) {
-            return 0
-        }
-        array.forEach(element => {
-            if (element > max) {
-                max = element
-            }
-        });
-        return max
+    });
+    return max
+}
 
-        exports.avg = function avg(array) {
-            return 0;
-        }
+exports.avg = function avg(array) {
+    let sum = 0
+    if (arguments.length === 0 || array[0] == undefined) {
+        return 0
+    }
+    array.forEach(element => {
+        sum += element
+    })
+    return sum / array.length;
+}
